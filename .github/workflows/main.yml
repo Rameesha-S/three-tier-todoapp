@@ -1,0 +1,4 @@
+- name: Trigger Jenkins Job
+  run: |
+    curl -X POST "http://10.2.2.161:8080/job/myapp-deploy/build" \
+    --user "admin:11f7529760a05ed905a34a83d9e5e21394"
