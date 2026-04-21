@@ -20,7 +20,7 @@ jobs:
       - name: Trigger Jenkins Job
         run: |
           curl -X POST "http://10.2.2.161:8080/job/myapp-deploy/build" \
-          --user "${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_API_TOKEN }}"
+          --user "${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_JOB_TOKEN }}"
 
       # --- Direct deploy to Linux server ---
       - name: Deploy via SSH
