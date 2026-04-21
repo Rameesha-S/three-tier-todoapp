@@ -1,0 +1,13 @@
+# Laravel
+todo-api/vendor/
+todo-api/.env
+todo-api/storage/*.log
+todo-api/storage/framework/
+todo-api/node_modules/
+
+# Vagrant
+.vagrant/
+
+# OS files
+.DS_Store
+Thumbs.db
