@@ -18,4 +18,4 @@ jobs:
           # Added -f to fail the action if Jenkins returns an error (like 401)
           # Added -sS to keep the logs clean
           curl -f -sS -X POST "http://localhost:8080/job/myapp-deploy/build" \
-          --user "${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }}"
+          --user "${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_JOB_TOKEN }}"
