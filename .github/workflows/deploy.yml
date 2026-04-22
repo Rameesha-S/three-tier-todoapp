@@ -7,23 +7,15 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: self-hosted   # Your runner on 10.2.2.161
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run tests (optional)
-        run: echo "Run your tests here"
-
       - name: Trigger Jenkins Job
         run: |
-          curl -X POST "http://localhost:8080/job/myapp-deploy/build" \
+          # Added -f to fail the action if Jenkins returns an error (like 401)
+          # Added -sS to keep the logs clean
+          curl -f -sS -X POST "http://localhost:8080/job/myapp-deploy/build" \
           --user "${{ secrets.JENKINS_USER }}:${{ secrets.JENKINS_TOKEN }}"
-
-      - name: Deploy locally (no SSH needed)
-        run: |
-          cd /opt/myapp
-          git pull origin main
-          docker compose down
-          docker compose up -d --build
